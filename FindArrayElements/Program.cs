@@ -10,6 +10,27 @@ namespace FindArrayElements
     {
         static void Main(string[] args)
         {
+            string[] sortedDays =
+            {
+            "Friday",
+            "Monday",
+            "Saturday",
+            "Sunday",
+            "Thursday",
+            "Tuesday",
+            "Wednesday"
+            };
+
+            //"Array.IdexOf" is much slower for very large arrays
+            //int indexOfSunday = Array.IndexOf(sortedDays, "Sunday");
+
+            //using binary search (much faster than other search types)
+            int indexOfSunday = Array.BinarySearch(sortedDays, "Sunday");
+
+            Console.WriteLine($"Index of {sortedDays[indexOfSunday]} is: {indexOfSunday}");
+
+
+            /*
             string[] daysOfWeek =
             {
                 "Monday",
@@ -34,6 +55,7 @@ namespace FindArrayElements
                 daysOfWeek, x => x.Length == 6);
             foreach (string item in allWithSixChars)
                 Console.WriteLine(item);
+                */
         }
     }
 }
